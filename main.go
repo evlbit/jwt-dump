@@ -56,6 +56,6 @@ func main() {
 	fmt.Println(prettyHeader.String())
 
 	fmt.Println()
-	fmt.Println("Paylod:")
+	fmt.Println("Payload:")
 	fmt.Println(prettyPayload.String())
 }
