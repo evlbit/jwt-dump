@@ -10,22 +10,20 @@ go install github.com/evlbit/jwt-dump@latest
 
 ## Usage
 
-Just simply provide a token
+Just simply run the command, provide a token, and its contents will be outputted.
 
 ```
-jwt-dump eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjM0LCJpYXQiOjE3Mzc4ODA3NjUsImV4cCI6MTczNzkwOTU2NX0.vz0TO00wX8F_OhsMSsuDaRuKITJosIT2qmMoX8HTXf0
-```
+$ jwt-dump
+Enter token:
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjM0LCJpYXQiOjE3Mzc4ODA3NjUsImV4cCI6MTczNzkwOTU2NX0.vz0TO00wX8F_OhsMSsuDaRuKITJosIT2qmMoX8HTXf0
 
-And it's contents will be outputted
-
-```
 Header:
 {
   "typ": "JWT",
   "alg": "HS256"
 }
 
-Paylod:
+Payload:
 {
   "user_id": 1234,
   "iat": 1737880765,

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/base64"
 	"encoding/json"
@@ -14,15 +15,16 @@ func main() {
 	log.SetPrefix("jwt-dump: ")
 	log.SetFlags(log.LstdFlags &^ (log.Ldate | log.Ltime))
 
-	args := os.Args
+	scanner := bufio.NewScanner(os.Stdin)
 
-	if len(args) < 2 {
-		log.Fatalln("token not provided")
-	} else if len(args) > 2 {
-		log.Fatalln("too many arguments")
+	fmt.Println("Enter token:")
+	scanner.Scan()
+
+	if err := scanner.Err(); err != nil {
+		log.Fatalln("could not read input -", err)
 	}
 
-	token := args[1]
+	token := scanner.Text()
 	tokenParts := strings.Split(token, ".")
 
 	if len(tokenParts) != 3 {
